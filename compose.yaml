@@ -1,0 +1,25 @@
+# The Chroma Service
+services:
+  vec-db:
+    
+    # How to Build
+    build:
+      context: .
+    # Name of the Container
+    container_name: chroma # Name the container
+    # Port Binding
+    ports:
+      - 8765:8765 # Expose container's port 8765 on host
+    # Port Binding
+    volumes:
+      - chroma_data:/app/chroma_data/ # Persistent storage for data
+      - chroma_log:/app/chroma_log/   # Persistent storage for logs
+    # Environment Variables
+    environment:
+      - ANONYMIZED_TELEMETRY=false # Disable anonymized telemetry
+    # Behaviour on Restart
+    restart: on-failure:3 # Ensure service restarts on failure
+
+volumes:
+  chroma_data: # Volume for storing application data
+  chroma_log:  # Volume for storing application logs

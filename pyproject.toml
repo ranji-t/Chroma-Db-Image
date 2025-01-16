@@ -1,0 +1,10 @@
+[project]
+name = "chroma-db"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "chromadb>=0.6.3",
+    "pip>=24.3.1",
+]
