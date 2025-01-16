@@ -16,10 +16,12 @@ services:
       - chroma_log:/app/chroma_log/   # Persistent storage for logs
     # Environment Variables
     environment:
-      - ANONYMIZED_TELEMETRY=false # Disable anonymized telemetry
+      - ANONYMIZED_TELEMETRY=False # Disable anonymized telemetry
     # Behaviour on Restart
     restart: on-failure:3 # Ensure service restarts on failure
 
 volumes:
   chroma_data: # Volume for storing application data
+    external: true
   chroma_log:  # Volume for storing application logs
+    external: true

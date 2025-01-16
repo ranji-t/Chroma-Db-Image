@@ -38,6 +38,7 @@ requirements.txts
 uv.lock
 .python-version
 pyproject.toml
+README.Docker.md
 
 # Custom Directories
 chroma_data/

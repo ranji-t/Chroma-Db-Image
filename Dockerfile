@@ -1,7 +1,6 @@
 # syntax=docker/dockerfile:1
 
 ARG PYTHON_VERSION=3.13.1
-# FROM python:${PYTHON_VERSION}-alpine AS base
 FROM python:${PYTHON_VERSION}-slim AS base
 
 # Prevents Python from writing pyc files.
@@ -20,7 +19,6 @@ WORKDIR /app
 RUN --mount=type=cache,target=/root/.cache/pip \
     --mount=type=bind,source=requirements.txt,target=requirements.txt \
     apt-get update && apt-get install -y build-essential \
-    # apk add --no-cache g++ make \ # For Alpine Images
     && python -m pip install --no-cache-dir -r requirements.txt
 
 # Copy the source code into the container.
